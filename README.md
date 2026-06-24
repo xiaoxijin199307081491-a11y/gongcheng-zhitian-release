@@ -11,7 +11,6 @@
 [📥 下载 Android 版](https://github.com/xiaoxijin199307081491-a11y/gongcheng-zhitian-release/releases/latest) · [🌐 官方网站](https://xiaoxijin199307081491-a11y.github.io/gongcheng-zhitian-release/) · [它能做什么](#它能做什么)
 
 ![GitHub release (latest)](https://img.shields.io/github/v/release/xiaoxijin199307081491-a11y/gongcheng-zhitian-release)
-![Flutter 3.12+](https://img.shields.io/badge/Flutter-3.12+-02569B?logo=flutter)
 ![Android](https://img.shields.io/badge/Android-3DDC84?logo=android&logoColor=white)
 ![iOS soon](https://img.shields.io/badge/iOS-即将推出-lightgrey?logo=apple)
 
@@ -100,59 +99,6 @@
 
 ---
 
-## 技术栈
-
-| 类别 | 选型 |
-|---|---|
-| 框架 | Flutter 3.12+ · Dart |
-| 状态管理 | `flutter_riverpod` |
-| 本地存储 | `sqflite` + `shared_preferences` |
-| AI | `http`(OpenAI 兼容,4 家可选:Minimax / 智谱 GLM / DeepSeek / 自定义) |
-| Word/Excel | `archive`(直接操作 docx / xlsx 的 zip+xml,**不加新依赖**) |
-| 天气 | 腾讯云 CloudBase `getWeather` 云函数代理和风天气 + `weather_cache` 缓存 |
-| 监控 / 反馈 | 腾讯云 CloudBase + Bugly + QQ 邮箱 SMTP(全程国内栈) |
-| 主题 | Material 3 单一种子色 · `flutter_localizations` (zh_CN) |
-
----
-
-## 架构概览
-
-> 闭源商业软件,源码不在本仓库。下面是整体架构,供了解项目设计参考。
-
-```
-工程智填/
-├── lib/
-│   ├── app/                       # 入口
-│   ├── core/
-│   │   ├── data/                  # sqflite 模型 + CRUD
-│   │   ├── doc/                   # DocRegistry (文档注册表,单一真相源)
-│   │   ├── ai/                    # 4 Provider AI 客户端 + 提示词 + 后置校验
-│   │   ├── export/                # WordExporter / LedgerXlsxBuilder (手搓 xlsx)
-│   │   ├── ledger/                # 材料台账文本合成器
-│   │   ├── template/              # LogFieldRegistry / 占位符替换器
-│   │   ├── knowledge/             # WorkContentMap / InspectionItemsDB / 知识库
-│   │   ├── weather/               # 天气服务(读 getWeather 云函数)
-│   │   ├── batch/                 # 批量补做规划器
-│   │   ├── activation/            # 激活码 Provider + 24h 离线窗口
-│   │   ├── monitoring/            # Analytics / CrashReporter / FeedbackUploader
-│   │   └── update/                # 检查更新服务
-│   ├── feature/                   # 页面
-│   │   ├── home/                  # 工作台 (飞书风常用宫格)
-│   │   ├── doclib/                # 文档库 + 文档卡复用件 + 分类页
-│   │   ├── log/                   # AI 生成页 / 手动填写 / 预览 / 历史 / 周报 / 批量
-│   │   ├── ledger/                # 材料台账管理页
-│   │   ├── activation/            # 激活码页
-│   │   └── profile/               # 项目管理 / AI 配置 / 主题 / 反馈 / 检查更新
-│   └── shared/
-│       ├── theme/                 # 主题系统 + spacing/radius
-│       └── widgets/               # 通用组件
-├── cloud_functions/               # CloudBase 云函数 (getWeather / analytics / sendFeedback / weatherCron)
-├── assets/templates/              # 各模板 docx 资产 + 预览图
-└── test/                          # 450+ 个测试
-```
-
----
-
 ## 许可
 
 闭源商业付费软件。本仓库仅用于发布安装包与项目说明,不含源码。版权归作者所有,未经许可不得复制、二次分发或商用。
@@ -164,4 +110,3 @@
 - [Flutter](https://flutter.dev) — 一份代码,Android + iOS
 - [腾讯云 CloudBase](https://cloud.tencent.com/product/tcb) — 激活码 / 反馈 / 监控 / 天气代理,全栈国内服务
 - [和风天气](https://www.qweather.com) — 历史+预报天气 API
-- [MiniMax / 智谱 GLM / DeepSeek](https://platform.deepseek.com) — AI 服务商(OpenAI 兼容协议)
