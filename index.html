@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>工程智填 — 用大白话自动填工程表格</title>
+  <meta name="description" content="工程智填:一段大白话,AI 自动生成监理日志 / 施工日报 / 危大配套表等工程文档,一键导出 Word。" />
+  <style>
+    :root {
+      --blue: #0A66C2;
+      --blue-dark: #084e95;
+      --ink: #1d2023;
+      --muted: #5b6470;
+      --bg: #edeff1;
+      --card: #ffffff;
+      --line: #e2e6ea;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+    header {
+      background: linear-gradient(160deg, var(--blue), var(--blue-dark));
+      color: #fff;
+      text-align: center;
+      padding: 56px 20px 48px;
+    }
+    header .logo {
+      width: 72px; height: 72px; line-height: 72px;
+      border-radius: 18px; background: rgba(255,255,255,.16);
+      font-size: 34px; margin: 0 auto 18px;
+    }
+    header h1 { font-size: 28px; letter-spacing: 1px; }
+    header p { margin-top: 10px; font-size: 15px; opacity: .92; }
+    .btn {
+      display: inline-block; margin-top: 26px;
+      background: #fff; color: var(--blue);
+      font-size: 17px; font-weight: 600;
+      padding: 14px 38px; border-radius: 999px;
+      text-decoration: none; box-shadow: 0 6px 20px rgba(0,0,0,.15);
+    }
+    .btn:active { transform: translateY(1px); }
+    .hint { margin-top: 12px; font-size: 12px; opacity: .8; }
+    section { padding: 36px 0; }
+    h2 { font-size: 19px; margin-bottom: 16px; color: var(--ink); }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .feature {
+      background: var(--card); border: 1px solid var(--line);
+      border-radius: 14px; padding: 16px;
+    }
+    .feature h3 { font-size: 15px; margin-bottom: 4px; }
+    .feature p { font-size: 13px; color: var(--muted); }
+    .log {
+      background: var(--card); border: 1px solid var(--line);
+      border-radius: 14px; padding: 16px 18px; margin-bottom: 12px;
+    }
+    .log .ver { font-weight: 600; color: var(--blue); }
+    .log .date { font-size: 12px; color: var(--muted); margin-left: 8px; }
+    .log ul { margin: 8px 0 0 18px; font-size: 14px; color: var(--ink); }
+    .contact {
+      background: var(--card); border: 1px solid var(--line);
+      border-radius: 14px; padding: 18px; font-size: 14px; color: var(--ink);
+    }
+    .contact a { color: var(--blue); text-decoration: none; }
+    footer { text-align: center; color: var(--muted); font-size: 12px; padding: 30px 0 44px; }
+    @media (max-width: 480px) { .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">📋</div>
+    <h1>工程智填</h1>
+    <p>用大白话自动填各类工程表格 · iOS / Android</p>
+    <!-- 下载按钮指向公开下载仓库的最新 Release(发新版自动指向 latest) -->
+    <a class="btn" href="https://github.com/xiaoxijin199307081491-a11y/gongcheng-zhitian-release/releases/latest">下载最新版</a>
+    <div class="hint">Android 安装包(APK) · 安装时如提示「未知来源」请允许</div>
+  </header>
+
+  <div class="wrap">
+    <section>
+      <h2>它能做什么</h2>
+      <div class="grid">
+        <div class="feature">
+          <h3>大白话生成</h3>
+          <p>一段口语描述,AI 自动写成规范的监理日志 / 施工日报。</p>
+        </div>
+        <div class="feature">
+          <h3>危大配套表</h3>
+          <p>按现场自动触发巡视 / 旁站记录表,跟日志成套导出。</p>
+        </div>
+        <div class="feature">
+          <h3>批量补做</h3>
+          <p>忘记写的一段时间,描述大致工作即可整段补齐。</p>
+        </div>
+        <div class="feature">
+          <h3>一键导出 Word</h3>
+          <p>直接生成 .docx,支持按日期范围批量导出。</p>
+        </div>
+        <div class="feature">
+          <h3>自动天气</h3>
+          <p>按工程地点和日期一键获取天气 / 温度 / 风向。</p>
+        </div>
+        <div class="feature">
+          <h3>材料台账</h3>
+          <p>材料进场 / 见证取样自动汇总,可导出 Excel。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>更新日志</h2>
+      <div class="log">
+        <span class="ver">v2.31.0</span><span class="date">2026-06</span>
+        <ul>
+          <li>新增「检查更新」与「官方网站」入口</li>
+          <li>转发的 App 也能找到官方出处,自动提醒新版本</li>
+        </ul>
+      </div>
+      <div class="log">
+        <span class="ver">v2.30</span><span class="date">2026-06</span>
+        <ul>
+          <li>材料台账扩到水利 · 文档库改两级方块网格</li>
+          <li>项目卡片角色徽章 · 工作台飞书风改版</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>联系作者</h2>
+      <div class="contact">
+        <p>使用中遇到问题,可在 App 内「我的 → 反馈」一键把日志发给开发者,我们会尽快处理。</p>
+        <!-- 可选:想公开邮箱/二维码时取消注释并替换
+        <p style="margin-top:6px;">📧 <a href="mailto:you@example.com">you@example.com</a></p>
+        <p style="margin-top:10px;"><img src="qrcode.png" alt="联系二维码" width="160" /></p>
+        -->
+      </div>
+    </section>
+  </div>
+
+  <footer>© 2026 工程智填 · 本站为官方下载与说明页</footer>
+</body>
+</html>
