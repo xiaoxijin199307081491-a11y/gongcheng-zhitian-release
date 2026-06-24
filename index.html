@@ -31,9 +31,11 @@
       padding: 56px 20px 48px;
     }
     header .logo {
-      width: 72px; height: 72px; line-height: 72px;
-      border-radius: 18px; background: rgba(255,255,255,.16);
-      font-size: 34px; margin: 0 auto 18px;
+      width: 72px; height: 72px;
+      border-radius: 18px;
+      background: #fff;
+      margin: 0 auto 18px;
+      object-fit: cover;
     }
     header h1 { font-size: 28px; letter-spacing: 1px; }
     header p { margin-top: 10px; font-size: 15px; opacity: .92; }
@@ -73,7 +75,7 @@
 </head>
 <body>
   <header>
-    <div class="logo">📋</div>
+    <div class="logo"><img src="icon.png" alt="工程智填" width="72" height="72" style="display:block;border-radius:18px;" /></div>
     <h1>工程智填</h1>
     <p>用大白话自动填各类工程表格 · Android 已上线 · iOS 即将推出</p>
     <!-- 下载按钮指向公开下载仓库的最新 Release(发新版自动指向 latest) -->
