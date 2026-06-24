@@ -78,8 +78,8 @@
     <div class="logo"><img src="icon.png" alt="工程智填" width="72" height="72" style="display:block;border-radius:18px;" /></div>
     <h1>工程智填</h1>
     <p>用大白话自动填各类工程表格 · Android 已上线 · iOS 即将推出</p>
-    <!-- 下载按钮指向公开下载仓库的最新 Release(发新版自动指向 latest) -->
-    <a class="btn" href="https://github.com/xiaoxijin199307081491-a11y/gongcheng-zhitian-release/releases/latest">下载 Android 版</a>
+    <!-- 下载按钮:直链 APK,点击直接开始下载(不跳 GitHub 页面);链接与 version.json 的 downloadUrl 保持一致 -->
+    <a class="btn" href="https://github.com/xiaoxijin199307081491-a11y/gongcheng-zhitian-release/releases/download/v2.32.0/gongcheng-zhitian-v2.32.0.apk" download>下载 Android 版(v2.32.0)</a>
     <div class="hint">Android 安装包(APK) · 安装时如提示「未知来源 / 外部来源」请选择允许</div>
     <div class="hint" style="margin-top:8px;">📱 iOS 版正在适配中：受苹果 App Store 上架审核流程影响，暂未开放下载，上线后会第一时间在此发布，敬请期待。</div>
   </header>
@@ -117,13 +117,6 @@
 
     <section>
       <h2>更新日志</h2>
-      <div class="log">
-        <span class="ver">v2.32.0</span><span class="date">2026-06-24</span>
-        <ul>
-          <li>反重打包:服务端签名校验(防改 App 重签名转卖)</li>
-          <li>客户端读运行时签名 SHA-256 随激活校验发给云端比对,白名单不符则激活失效</li>
-        </ul>
-      </div>
       <div class="log">
         <span class="ver">v2.31.0</span><span class="date">2026-06</span>
         <ul>
