@@ -127,7 +127,7 @@
       <h2>联系作者</h2>
       <div class="contact">
         <p>使用中遇到问题,可在 App 内「我的 → 反馈」一键把日志发给开发者,我们会尽快处理。</p>
-        <p style="margin-top:8px;">📧 邮箱:<a id="contact-email" href="mailto:your-email@example.com">your-email@example.com</a></p>
+        <p style="margin-top:8px;">📧 邮箱:<a id="contact-email" href="mailto:669222071@qq.com">669222071@qq.com</a></p>
         <p style="margin-top:6px; font-size:12px; color: var(--muted);">购买激活码、批量授权、商务合作请发邮件,主题注明「工程智填」。</p>
       </div>
     </section>
@@ -167,9 +167,9 @@
           }
           // 最新版:用 updateLog 当摘要(App 更新弹窗也用它)
           el.innerHTML = renderLog(v.version, '最新', v.updateLog);
-          // 历史版:从 history 数组渲染,发版时往里加一条即可
+          // 历史版:从 history 数组渲染,只展示最近 3 版(更早的 v.history 仍保留,留给存档/扩展用)
           if (extra && Array.isArray(v.history)) {
-            extra.innerHTML = v.history.map(function (h) {
+            extra.innerHTML = v.history.slice(0, 3).map(function (h) {
               return '<div class="log">' +
                 renderLog(h.version, h.date || '', h.notes) +
                 '</div>';
