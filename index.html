@@ -79,7 +79,7 @@
     <h1>工程智填</h1>
     <p>用大白话自动填各类工程表格 · Android 已上线 · iOS 即将推出</p>
     <!-- 下载按钮:直链 APK(CloudBase 静态托管,国内 CDN 快 + 正确返回 apk 类型,浏览器直接存 .apk);链接与 version.json 的 downloadUrl 保持一致。 -->
-    <a class="btn" href="https://jianilrizhi-d7gbsmtka8ca38268-1419360976.tcloudbaseapp.com/gongcheng-zhitian-v2.33.2.apk" download>下载 Android 版(v2.33.2)</a>
+    <a class="btn" id="download-btn" href="https://ghfast.top/https://github.com/xiaoxijin199307081491-a11y/gongcheng-zhitian-release/releases/download/v2.33.2/gongcheng-zhitian-v2.33.2.apk" download>下载 Android 版(<span id="btn-version">v2.33.2</span>)</a>
     <div class="hint">Android 安装包(APK) · 安装时如提示「未知来源 / 外部来源」请选择允许</div>
     <div class="hint" style="margin-top:8px;">📱 iOS 版正在适配中：受苹果 App Store 上架审核流程影响，暂未开放下载，上线后会第一时间在此发布，敬请期待。</div>
   </header>
@@ -117,34 +117,72 @@
 
     <section>
       <h2>更新日志</h2>
-      <div class="log">
-        <span class="ver">v2.31.0</span><span class="date">2026-06</span>
-        <ul>
-          <li>新增「检查更新」与「官方网站」入口</li>
-          <li>转发的 App 也能找到官方出处,自动提醒新版本</li>
-        </ul>
+      <div id="changelog-latest" class="log">
+        <span class="ver">加载中…</span>
       </div>
-      <div class="log">
-        <span class="ver">v2.30</span><span class="date">2026-06</span>
-        <ul>
-          <li>材料台账扩到水利 · 文档库改两级方块网格</li>
-          <li>项目卡片角色徽章 · 工作台飞书风改版</li>
-        </ul>
-      </div>
+      <div id="changelog-extra"></div>
     </section>
 
     <section>
       <h2>联系作者</h2>
       <div class="contact">
         <p>使用中遇到问题,可在 App 内「我的 → 反馈」一键把日志发给开发者,我们会尽快处理。</p>
-        <!-- 可选:想公开邮箱/二维码时取消注释并替换
-        <p style="margin-top:6px;">📧 <a href="mailto:you@example.com">you@example.com</a></p>
-        <p style="margin-top:10px;"><img src="qrcode.png" alt="联系二维码" width="160" /></p>
-        -->
+        <p style="margin-top:8px;">📧 邮箱:<a id="contact-email" href="mailto:your-email@example.com">your-email@example.com</a></p>
+        <p style="margin-top:6px; font-size:12px; color: var(--muted);">购买激活码、批量授权、商务合作请发邮件,主题注明「工程智填」。</p>
       </div>
     </section>
   </div>
 
   <footer>© 2026 工程智填 · 本站为官方下载与说明页</footer>
+
+  <script>
+    // 动态更新日志:整段日志(最新版 + 历史)全部从同源 version.json 渲染,
+    // 发版时只改 version.json 的 version/updateLog/history,官网自动同步,无需手改本页。
+    // 发版时:① 改根目录 version.json ② 同步一份到本仓 website/version.json ③ 部署
+    // (双份保持同步是因为 App 从 CloudBase 拉,官网从 GitHub Pages 拉,跨域 CORS 拦截)
+    (function () {
+      var el = document.getElementById('changelog-latest');
+      var extra = document.getElementById('changelog-extra');
+      var btn = document.getElementById('download-btn');
+      var btnVer = document.getElementById('btn-version');
+      if (!el) return;
+      function esc(s) { return String(s == null ? '' : s).replace(/</g, '&lt;'); }
+      // 一条更新记录 → HTML(notes 可以是字符串数组,也可单条字符串)
+      function renderLog(ver, dateText, notes) {
+        var items = Array.isArray(notes) ? notes : [notes];
+        var lis = items
+          .filter(function (n) { return n != null && n !== ''; })
+          .map(function (n) { return '<li>' + esc(n) + '</li>'; })
+          .join('');
+        return '<span class="ver">v' + esc(ver) + '</span>' +
+          '<span class="date">' + esc(dateText) + '</span>' +
+          '<ul>' + lis + '</ul>';
+      }
+      fetch('./version.json', { cache: 'no-cache' })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (v) {
+          if (!v || !v.version) {
+            el.innerHTML = '<span class="ver">暂无更新</span>';
+            return;
+          }
+          // 最新版:用 updateLog 当摘要(App 更新弹窗也用它)
+          el.innerHTML = renderLog(v.version, '最新', v.updateLog);
+          // 历史版:从 history 数组渲染,发版时往里加一条即可
+          if (extra && Array.isArray(v.history)) {
+            extra.innerHTML = v.history.map(function (h) {
+              return '<div class="log">' +
+                renderLog(h.version, h.date || '', h.notes) +
+                '</div>';
+            }).join('');
+          }
+          // 同步更新下载按钮的 URL 和版本号(发版时改一处即可)
+          if (v.downloadUrl && btn) btn.setAttribute('href', v.downloadUrl);
+          if (v.version && btnVer) btnVer.textContent = 'v' + v.version;
+        })
+        .catch(function () {
+          el.innerHTML = '<span class="ver">加载失败</span>';
+        });
+    })();
+  </script>
 </body>
 </html>
