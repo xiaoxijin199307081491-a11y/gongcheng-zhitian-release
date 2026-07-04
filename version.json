@@ -1,10 +1,19 @@
 {
-  "version": "2.33.2",
-  "versionCode": 24,
-  "downloadUrl": "https://jianilrizhi-d7gbsmtka8ca38268-1419360976.tcloudbaseapp.com/gongcheng-zhitian-v2.33.2.apk",
+  "version": "2.34.0",
+  "versionCode": 25,
+  "apkFileID": "cloud://jianilrizhi-d7gbsmtka8ca38268.6a69-jianilrizhi-d7gbsmtka8ca38268-1419360976/release/gongcheng-zhitian-v2.34.0+25.apk",
+  "downloadUrl": "https://6a69-jianilrizhi-d7gbsmtka8ca38268-1419360976.tcb.qcloud.la/release/gongcheng-zhitian-v2.34.0+25.apk?sign=5eb992726a7afa86d08ca8b6237688e8&t=1783181995",
   "forceUpdate": true,
-  "updateLog": "本次强制更新:对 v2.33.2 安装包重新签发(显示版本号仍是 2.33.2,内部版本号 24),业务代码与上一版完全一致(无功能变化)。点「立即下载」更新即可,历史日志 / 项目 / AI 配置 / 激活码状态全部保留。本次必须更新,没有「稍后」选项。",
+  "updateLog": "本次强制更新(v2.34.0)修复点:真机浏览器点官网 + App 内「立即下载」都会撞「访问提示中间页」无法装包的根因 —— 彻底重构成「现场签」机制:APK 改存 CloudBase COS 云存储,新增 getFileUrl 云函数现场签 COS 直连(App/官网点击时调用,不再撞中间页)。version.json 加 apkFileID 字段做主路径,downloadUrl 作兜底。部署流水线改:./sync_cloudbase.sh --deploy-fn / --apk / version.json / --clean-old 2.33.2。详见 CHANGELOG.md v2.34.0 章节。本次必须更新,没有「稍后」选项。",
   "history": [
+    {
+      "version": "2.33.2",
+      "date": "2026-06",
+      "notes": [
+        "修复「启动不自动检查更新」(不手动点就不亮红点)",
+        "v2.33.2 安装包重新签发(显示版本号不变,内部版本号 24)"
+      ]
+    },
     {
       "version": "2.33.1",
       "date": "2026-06",
