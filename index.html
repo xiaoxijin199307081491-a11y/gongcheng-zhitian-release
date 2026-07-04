@@ -78,8 +78,9 @@
     <div class="logo"><img src="icon.png" alt="工程智填" width="72" height="72" style="display:block;border-radius:18px;" /></div>
     <h1>工程智填</h1>
     <p>用大白话自动填各类工程表格 · Android 已上线 · iOS 即将推出</p>
-    <!-- 下载按钮:直链 APK(CloudBase 静态托管,国内 CDN 快 + 正确返回 apk 类型,浏览器直接存 .apk);链接与 version.json 的 downloadUrl 保持一致。 -->
-    <a class="btn" id="download-btn" href="https://ghfast.top/https://github.com/xiaoxijin199307081491-a11y/gongcheng-zhitian-release/releases/download/v2.33.2/gongcheng-zhitian-v2.33.2.apk" download>下载 Android 版(<span id="btn-version">v2.33.2</span>)</a>
+    <!-- 下载按钮:运行时由下面的 JS 从 version.json 的 downloadUrl 覆盖 href(走 getFileUrl 现签 → COS 直连)。
+         初始 href 用 javascript:void(0) 防止 version.json 加载失败时落到旧 ghfast.top 镜像(GFW 限速链)。 -->
+    <a class="btn" id="download-btn" href="javascript:void(0)" download>下载 Android 版(<span id="btn-version">v2.33.2</span>)</a>
     <div class="hint">Android 安装包(APK) · 安装时如提示「未知来源 / 外部来源」请选择允许</div>
     <div class="hint" style="margin-top:8px;">📱 iOS 版正在适配中：受苹果 App Store 上架审核流程影响，暂未开放下载，上线后会第一时间在此发布，敬请期待。</div>
   </header>
@@ -140,11 +141,25 @@
     // 发版时只改 version.json 的 version/updateLog/history,官网自动同步,无需手改本页。
     // 发版时:① 改根目录 version.json ② 同步一份到本仓 website/version.json ③ 部署
     // (双份保持同步是因为 App 从 CloudBase 拉,官网从 GitHub Pages 拉,跨域 CORS 拦截)
+    //
+    // ⭐ 下载按钮走 getFileUrl 现签(避开 *.tcloudbaseapp.com 中间页):
+    //   点击 → fetch version.json 拿 apkFileID → POST getFileUrl 拿 COS 直连 →
+    //   window.location.href 跳转(浏览器整页导航落在 *.tcb.qcloud.la,不被中间页拦)
+    //   兜底:apkFileID 缺失时退回 downloadUrl 静态直链(理论上仍会被中间页拦)
+    //   ⚠️ GitHub Pages 跨域调 CloudBase 云函数 → 用 text/plain Content-Type 绕 CORS 预检
     (function () {
       var el = document.getElementById('changelog-latest');
       var extra = document.getElementById('changelog-extra');
       var btn = document.getElementById('download-btn');
       var btnVer = document.getElementById('btn-version');
+
+      // ⭐ getFileUrl 云函数 URL(写在 HTML 里,跟 monitoring_config._base 一致)
+      //   同账号同 env 的错题集 App 也调这个端点;改环境时只改这里。
+      var GET_FILE_URL_ENDPOINT =
+        'https://jianilrizhi-d7gbsmtka8ca38268-1419360976.ap-shanghai.app.tcloudbase.com/getFileUrl';
+      var FALLBACK_URL = '';  // version.json.downloadUrl,fetch 后填进去
+      var APK_FILE_ID = '';   // version.json.apkFileID,fetch 后填进去
+
       if (!el) return;
       function esc(s) { return String(s == null ? '' : s).replace(/</g, '&lt;'); }
       // 一条更新记录 → HTML(notes 可以是字符串数组,也可单条字符串)
@@ -158,6 +173,43 @@
           '<span class="date">' + esc(dateText) + '</span>' +
           '<ul>' + lis + '</ul>';
       }
+
+      // 调 getFileUrl 拿 COS 直连,失败降级返 downloadUrl
+      function resolveDownloadUrl(fileID, fallback) {
+        if (!fileID) return Promise.resolve(fallback);
+        return fetch(GET_FILE_URL_ENDPOINT, {
+          method: 'POST',
+          // text/plain 是 CORS 简单请求安全列表,浏览器不发 OPTIONS 预检
+          headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+          body: JSON.stringify({ fileID: fileID, maxAge: 3600 }),
+        })
+          .then(function (r) { return r.ok ? r.json() : null; })
+          .then(function (data) {
+            var url = data && data.fileList && data.fileList[0] && data.fileList[0].tempFileURL;
+            return url || fallback;
+          })
+          .catch(function () { return fallback; });
+      }
+
+      // 拦截点击:先 resolve 现签 URL 再跳转(避开 *.tcloudbaseapp.com 中间页)
+      if (btn) {
+        btn.addEventListener('click', function (e) {
+          // 没 apkFileID → 走 <a href> 默认跳转(降级到 downloadUrl)
+          if (!APK_FILE_ID) return;
+          e.preventDefault();
+          var fallback = FALLBACK_URL || btn.getAttribute('href') || '';
+          // 给用户一点反馈:按钮文案改 "正在准备下载…"
+          var origText = btn.innerHTML;
+          btn.innerHTML = '正在准备下载…';
+          btn.style.pointerEvents = 'none';
+          resolveDownloadUrl(APK_FILE_ID, fallback).then(function (url) {
+            if (!url) { btn.innerHTML = origText; btn.style.pointerEvents = ''; return; }
+            // 这一跳落在 *.tcb.qcloud.la(COS 直连,不被中间页拦)
+            window.location.href = url;
+          });
+        });
+      }
+
       fetch('./version.json', { cache: 'no-cache' })
         .then(function (r) { return r.ok ? r.json() : null; })
         .then(function (v) {
@@ -175,9 +227,12 @@
                 '</div>';
             }).join('');
           }
-          // 同步更新下载按钮的 URL 和版本号(发版时改一处即可)
-          if (v.downloadUrl && btn) btn.setAttribute('href', v.downloadUrl);
+          // ⭐ 版本号 + 稳定 fileID + 兜底 downloadUrl(供 click handler 用)
           if (v.version && btnVer) btnVer.textContent = 'v' + v.version;
+          if (v.downloadUrl) FALLBACK_URL = v.downloadUrl;
+          if (v.apkFileID) APK_FILE_ID = v.apkFileID;
+          // href 仍设 downloadUrl,作为 JS 失败时的终极兜底(直接跳转)
+          if (v.downloadUrl && btn) btn.setAttribute('href', v.downloadUrl);
         })
         .catch(function () {
           el.innerHTML = '<span class="ver">加载失败</span>';
