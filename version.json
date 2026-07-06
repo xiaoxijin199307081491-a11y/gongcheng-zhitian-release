@@ -1,11 +1,19 @@
 {
-  "version": "2.34.0",
-  "versionCode": 25,
-  "apkFileID": "cloud://jianilrizhi-d7gbsmtka8ca38268.6a69-jianilrizhi-d7gbsmtka8ca38268-1419360976/release/gongcheng-zhitian-v2.34.0+25.apk",
-  "downloadUrl": "https://6a69-jianilrizhi-d7gbsmtka8ca38268-1419360976.tcb.qcloud.la/release/gongcheng-zhitian-v2.34.0+25.apk?sign=b2c3663dd71f2eb103b6efd75286c542&t=1783320767",
-  "forceUpdate": true,
-  "updateLog": "本次强制更新(v2.34.0)修复点:真机浏览器点官网 + App 内「立即下载」都会撞「访问提示中间页」无法装包的根因 —— 彻底重构成「现场签」机制:APK 改存 CloudBase COS 云存储,新增 getFileUrl 云函数现场签 COS 直连(App/官网点击时调用,不再撞中间页)。version.json 加 apkFileID 字段做主路径,downloadUrl 作兜底。部署流水线改:./sync_cloudbase.sh --deploy-fn / --apk / version.json / --clean-old 2.33.2。详见 CHANGELOG.md v2.34.0 章节。本次必须更新,没有「稍后」选项。",
+  "version": "2.34.1",
+  "versionCode": 26,
+  "apkFileID": "cloud://jianilrizhi-d7gbsmtka8ca38268.6a69-jianilrizhi-d7gbsmtka8ca38268-1419360976/release/gongcheng-zhitian-v2.34.1+26.apk",
+  "downloadUrl": "https://6a69-jianilrizhi-d7gbsmtka8ca38268-1419360976.tcb.qcloud.la/release/gongcheng-zhitian-v2.34.1+26.apk?sign=fa9b5692e196540b126b18103e9d26eb&t=1783321681",
+  "forceUpdate": false,
+  "updateLog": "v2.34.1 安装包体积优化:最低支持安卓版本提到安卓 10(API 29,约近五年内机型),并去掉模拟器专用架构(x86_64),安装包从约 60MB 降到约 41MB(省三成)。已安装安卓 10 以下老设备的用户不受影响,继续正常使用当前版本;仅后续升级需安卓 10+。非强制更新,可选「稍后」。",
   "history": [
+    {
+      "version": "2.34.0",
+      "date": "2026-07",
+      "notes": [
+        "APK 下载改 COS 云存储 + getFileUrl 现场签,修复真机装不上的中间页拦截",
+        "官网同步 v2.34.0 现签下载机制"
+      ]
+    },
     {
       "version": "2.33.2",
       "date": "2026-06",
