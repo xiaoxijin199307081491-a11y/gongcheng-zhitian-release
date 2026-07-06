@@ -2,7 +2,7 @@
   "version": "2.34.0",
   "versionCode": 25,
   "apkFileID": "cloud://jianilrizhi-d7gbsmtka8ca38268.6a69-jianilrizhi-d7gbsmtka8ca38268-1419360976/release/gongcheng-zhitian-v2.34.0+25.apk",
-  "downloadUrl": "https://6a69-jianilrizhi-d7gbsmtka8ca38268-1419360976.tcb.qcloud.la/release/gongcheng-zhitian-v2.34.0+25.apk?sign=5eb992726a7afa86d08ca8b6237688e8&t=1783181995",
+  "downloadUrl": "https://6a69-jianilrizhi-d7gbsmtka8ca38268-1419360976.tcb.qcloud.la/release/gongcheng-zhitian-v2.34.0+25.apk?sign=b2c3663dd71f2eb103b6efd75286c542&t=1783320767",
   "forceUpdate": true,
   "updateLog": "本次强制更新(v2.34.0)修复点:真机浏览器点官网 + App 内「立即下载」都会撞「访问提示中间页」无法装包的根因 —— 彻底重构成「现场签」机制:APK 改存 CloudBase COS 云存储,新增 getFileUrl 云函数现场签 COS 直连(App/官网点击时调用,不再撞中间页)。version.json 加 apkFileID 字段做主路径,downloadUrl 作兜底。部署流水线改:./sync_cloudbase.sh --deploy-fn / --apk / version.json / --clean-old 2.33.2。详见 CHANGELOG.md v2.34.0 章节。本次必须更新,没有「稍后」选项。",
   "history": [
