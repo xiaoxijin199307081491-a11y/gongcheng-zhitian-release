@@ -1,11 +1,32 @@
 {
-  "version": "2.34.1",
-  "versionCode": 26,
-  "apkFileID": "cloud://jianilrizhi-d7gbsmtka8ca38268.6a69-jianilrizhi-d7gbsmtka8ca38268-1419360976/release/gongcheng-zhitian-v2.34.1+26.apk",
-  "downloadUrl": "https://6a69-jianilrizhi-d7gbsmtka8ca38268-1419360976.tcb.qcloud.la/release/gongcheng-zhitian-v2.34.1+26.apk?sign=fa9b5692e196540b126b18103e9d26eb&t=1783321681",
+  "version": "2.35.1",
+  "versionCode": 28,
+  "apkFileID": "cloud://jianilrizhi-d7gbsmtka8ca38268.6a69-jianilrizhi-d7gbsmtka8ca38268-1419360976/release/gongcheng-zhitian-v2.35.1+28.apk",
+  "downloadUrl": "https://6a69-jianilrizhi-d7gbsmtka8ca38268-1419360976.tcb.qcloud.la/release/gongcheng-zhitian-v2.35.1+28.apk",
   "forceUpdate": false,
-  "updateLog": "v2.34.1 安装包体积优化:最低支持安卓版本提到安卓 10(API 29,约近五年内机型),并去掉模拟器专用架构(x86_64),安装包从约 60MB 降到约 41MB(省三成)。已安装安卓 10 以下老设备的用户不受影响,继续正常使用当前版本;仅后续升级需安卓 10+。非强制更新,可选「稍后」。",
+  "updateLog": "v2.35.1 v9 模板「AI 没填字段」无兜底修复:Word 表头 4 项(星期/最高气温/最低气温/监理人员动态)不再空白,材料进场跨 run 占位符彻底替换,预览页不再「AI 未生成此字段」红条。v2.35.0 上线后用户真机反馈的导出空白 + 预览红条一次性修完,非强制更新。",
   "history": [
+    {
+      "version": "2.35.1",
+      "date": "2026-07",
+      "notes": [
+        "v9 模板「AI 没填字段」无兜底修复:Word 表头 4 项不再空白,材料跨 run 占位符彻底替换,预览红条消失"
+      ]
+    },
+    {
+      "version": "2.35.0",
+      "date": "2026-07",
+      "notes": [
+        "新增建筑工程监理日志—4 (fj_v9,5 段精简版)"
+      ]
+    },
+    {
+      "version": "2.34.1",
+      "date": "2026-07",
+      "notes": [
+        "安装包瘦身:最低支持安卓 10,砍掉模拟器架构(60MB→41MB)"
+      ]
+    },
     {
       "version": "2.34.0",
       "date": "2026-07",
