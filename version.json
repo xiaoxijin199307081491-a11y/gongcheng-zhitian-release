@@ -1,11 +1,19 @@
 {
-  "version": "2.35.1",
-  "versionCode": 28,
-  "apkFileID": "cloud://jianilrizhi-d7gbsmtka8ca38268.6a69-jianilrizhi-d7gbsmtka8ca38268-1419360976/release/gongcheng-zhitian-v2.35.1+28.apk",
+  "version": "2.36.0",
+  "versionCode": 29,
+  "apkFileID": "cloud://jianilrizhi-d7gbsmtka8ca38268.6a69-jianilrizhi-d7gbsmtka8ca38268-1419360976/release/gongcheng-zhitian-v2.36.0+29.apk",
   "downloadUrl": "",
   "forceUpdate": false,
-  "updateLog": "v2.35.1 v9 模板「AI 没填字段」无兜底修复:Word 表头 4 项(星期/最高气温/最低气温/监理人员动态)不再空白,材料进场跨 run 占位符彻底替换,预览页不再「AI 未生成此字段」红条。v2.35.0 上线后用户真机反馈的导出空白 + 预览红条一次性修完,非强制更新。",
+  "updateLog": "v2.36.0 新增建筑工程监理日志—5(业主精简版模板);新增 AI 云端代理,激活用户每天可免费生成 1 次日志(无需自填 Key),超额自动降级回自填 Key 直连。非强制更新。",
   "history": [
+    {
+      "version": "2.36.0",
+      "date": "2026-07",
+      "notes": [
+        "新增建筑工程监理日志—5(fj_v10,业主精简版)",
+        "新增 AI 云端代理:每日 1 次免费生成,无需自填 Key"
+      ]
+    },
     {
       "version": "2.35.1",
       "date": "2026-07",
