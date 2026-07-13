@@ -2,7 +2,7 @@
   "version": "2.37.0",
   "versionCode": 30,
   "apkFileID": "cloud://jianilrizhi-d7gbsmtka8ca38268.6a69-jianilrizhi-d7gbsmtka8ca38268-1419360976/release/gongcheng-zhitian-v2.37.0+30.apk",
-  "downloadUrl": "",
+  "downloadUrl": "https://jianilrizhi-d7gbsmtka8ca38268-1419360976.tcloudbaseapp.com/gongcheng-zhitian-v2.37.0+30.apk",
   "forceUpdate": false,
   "updateLog": "v2.37.0 AI 全链路云端化——prompt/知识库/后置校验全部迁到云端,APK 不再包含业务铁律和缺陷库。新增:批量规划器/周报也走云端 BYOK;每日免费额度从 1→2 次;失败请求不计费。本版变化较大,非强制更新,建议老用户观望后自行决定。",
   "history": [
