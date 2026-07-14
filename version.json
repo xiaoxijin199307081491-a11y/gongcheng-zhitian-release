@@ -1,11 +1,20 @@
 {
-  "version": "2.37.0",
-  "versionCode": 30,
-  "apkFileID": "cloud://jianilrizhi-d7gbsmtka8ca38268.6a69-jianilrizhi-d7gbsmtka8ca38268-1419360976/release/gongcheng-zhitian-v2.37.0+30.apk",
-  "downloadUrl": "https://jianilrizhi-d7gbsmtka8ca38268-1419360976.tcloudbaseapp.com/gongcheng-zhitian-v2.37.0+30.apk",
+  "version": "2.38.0",
+  "versionCode": 31,
+  "apkFileID": "cloud://jianilrizhi-d7gbsmtka8ca38268.6a69-jianilrizhi-d7gbsmtka8ca38268-1419360976/release/gongcheng-zhitian-v2.38.0+31.apk",
+  "downloadUrl": "https://jianilrizhi-d7gbsmtka8ca38268-1419360976.tcloudbaseapp.com/gongcheng-zhitian-v2.38.0+31.apk",
   "forceUpdate": false,
-  "updateLog": "v2.37.0 AI 全链路云端化——prompt/知识库/后置校验全部迁到云端,APK 不再包含业务铁律和缺陷库。新增:批量规划器/周报也走云端 BYOK;每日免费额度从 1→2 次;失败请求不计费。本版变化较大,非强制更新,建议老用户观望后自行决定。",
+  "updateLog": "v2.38.0 修复 BYOK(自填 Key)生成部分模板误报离线的问题(云端修复,已生效);反馈功能新增可附截图。非强制更新,建议观望后自行决定。",
   "history": [
+    {
+      "version": "2.38.0",
+      "date": "2026-07",
+      "notes": [
+        "修复 BYOK(自填 API Key)生成 fj_v7/v8/v9/sg_v1/水利等模板时误报「离线模式」(云端 bug,已修复生效)",
+        "反馈功能新增可选附一张截图,方便定位问题",
+        "非强制更新,建议观望后自行决定"
+      ]
+    },
     {
       "version": "2.37.0",
       "date": "2026-07",
