@@ -1,11 +1,18 @@
 {
-  "version": "2.38.0",
-  "versionCode": 31,
-  "apkFileID": "cloud://jianilrizhi-d7gbsmtka8ca38268.6a69-jianilrizhi-d7gbsmtka8ca38268-1419360976/release/gongcheng-zhitian-v2.38.0+31.apk",
-  "downloadUrl": "https://jianilrizhi-d7gbsmtka8ca38268-1419360976.tcloudbaseapp.com/gongcheng-zhitian-v2.38.0+31.apk",
+  "version": "2.38.1",
+  "versionCode": 32,
+  "apkFileID": "cloud://jianilrizhi-d7gbsmtka8ca38268.6a69-jianilrizhi-d7gbsmtka8ca38268-1419360976/release/gongcheng-zhitian-v2.38.1+32.apk",
+  "downloadUrl": "https://jianilrizhi-d7gbsmtka8ca38268-1419360976.tcloudbaseapp.com/gongcheng-zhitian-v2.38.1+32.apk",
   "forceUpdate": false,
-  "updateLog": "v2.38.0 修复 BYOK(自填 Key)生成部分模板误报离线的问题(云端修复,已生效);反馈功能新增可附截图。非强制更新,建议观望后自行决定。",
+  "updateLog": "v2.38.1 补一个安卓权限声明(不影响任何功能,消除一条后台报错)。v2.38.0 修复 BYOK(自填 Key)生成部分模板误报离线的问题(云端修复,已生效);反馈功能新增可附截图。非强制更新,建议观望后自行决定。",
   "history": [
+    {
+      "version": "2.38.1",
+      "date": "2026-07",
+      "notes": [
+        "补 ACCESS_NETWORK_STATE 安卓权限声明,消除一条无害的后台报错(不影响任何功能)"
+      ]
+    },
     {
       "version": "2.38.0",
       "date": "2026-07",
