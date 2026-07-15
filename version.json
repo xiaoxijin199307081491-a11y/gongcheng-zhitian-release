@@ -1,11 +1,21 @@
 {
-  "version": "2.40.0",
-  "versionCode": 34,
-  "apkFileID": "cloud://jianilrizhi-d7gbsmtka8ca38268.6a69-jianilrizhi-d7gbsmtka8ca38268-1419360976/release/gongcheng-zhitian-v2.40.0+34.apk",
+  "version": "2.40.1",
+  "versionCode": 35,
+  "apkFileID": "cloud://jianilrizhi-d7gbsmtka8ca38268.6a69-jianilrizhi-d7gbsmtka8ca38268-1419360976/release/gongcheng-zhitian-v2.40.1+35.apk",
   "downloadUrl": "",
   "forceUpdate": false,
-  "updateLog": "v2.40.0 纯云端化:不再需要自填API Key,首次激活赠50次AI生成,每日免费1次,充值¥30得200次。本次为大版本升级,建议更新。",
+  "updateLog": "v2.40.1 修复激活码/充值码尾号为 0 或 1 时输入框吞字符识别失败的 bug (部分用户买到这类尾号的码一直无法激活)。强烈建议所有已购用户更新。",
   "history": [
+    {
+      "version": "2.40.1",
+      "date": "2026-07",
+      "notes": [
+        "修复激活码/充值码输入框吞掉尾号 0/1 校验位的 bug(从系统建立起的回归,本次真正修好)",
+        "提取共享常量 kCodeInputFilter,激活页/充值页输入框统一使用粗粒度过滤",
+        "新增 testWidgets 输入管线回归测试,防止再退化",
+        "强烈建议更新(影响激活/兑换)"
+      ]
+    },
     {
       "version": "2.40.0",
       "date": "2026-07",
