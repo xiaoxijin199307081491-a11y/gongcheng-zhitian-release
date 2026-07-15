@@ -1,11 +1,25 @@
 {
-  "version": "2.39.0",
-  "versionCode": 33,
-  "apkFileID": "cloud://jianilrizhi-d7gbsmtka8ca38268.6a69-jianilrizhi-d7gbsmtka8ca38268-1419360976/release/gongcheng-zhitian-v2.39.0+33.apk",
+  "version": "2.40.0",
+  "versionCode": 34,
+  "apkFileID": "cloud://jianilrizhi-d7gbsmtka8ca38268.6a69-jianilrizhi-d7gbsmtka8ca38268-1419360976/release/gongcheng-zhitian-v2.40.0+34.apk",
   "downloadUrl": "",
   "forceUpdate": false,
-  "updateLog": "v2.39.0 调了单日 AI 生成的字段填充逻辑,连续多天场景下,质量/安全问题在相邻日期重复出现的现象已修复(改成 10 天内不重复)。非强制更新,建议升级体验。",
+  "updateLog": "v2.40.0 纯云端化:不再需要自填API Key,首次激活赠50次AI生成,每日免费1次,充值¥30得200次。本次为大版本升级,建议更新。",
   "history": [
+    {
+      "version": "2.40.0",
+      "date": "2026-07",
+      "notes": [
+        "纯云端化:自填API Key下线,所有AI走云端MiniMax-M3",
+        "首次激活赠50次AI生成(新老用户同权,每码终身一次)",
+        "充值套餐卡:¥10/50次、¥30/200次(省25%)、¥50/500次(省50%)",
+        "每日免费额度调为1次,用完可充值",
+        "修复3个bug(占位符泄漏/材料矛盾/昨日问题编造)",
+        "材料台账抽取改为云端免费副产品",
+        "埋点带激活码,可追踪客户留存",
+        "代码净瘦身~2,000行"
+      ]
+    },
     {
       "version": "2.39.0",
       "date": "2026-07",
