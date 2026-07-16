@@ -1,11 +1,19 @@
 {
-  "version": "2.40.1",
-  "versionCode": 35,
-  "apkFileID": "cloud://jianilrizhi-d7gbsmtka8ca38268.6a69-jianilrizhi-d7gbsmtka8ca38268-1419360976/release/gongcheng-zhitian-v2.40.1+35.apk",
+  "version": "2.40.2",
+  "versionCode": 36,
+  "apkFileID": "cloud://jianilrizhi-d7gbsmtka8ca38268.6a69-jianilrizhi-d7gbsmtka8ca38268-1419360976/release/gongcheng-zhitian-v2.40.2+36.apk",
   "downloadUrl": "",
   "forceUpdate": false,
-  "updateLog": "v2.40.1 修复激活码/充值码尾号为 0 或 1 时输入框吞字符识别失败的 bug (部分用户买到这类尾号的码一直无法激活)。强烈建议所有已购用户更新。",
+  "updateLog": "v2.40.2 修复 v2.40.1 的 App 内更新提示看不到自己。如果你是从 v2.40.0/2.40.1 升级上来的,强烈建议手动进「我的→当前版本→检查更新」一下,确保能拿到最新功能;以后新版本会按正常节奏通知你。",
   "history": [
+    {
+      "version": "2.40.2",
+      "date": "2026-07",
+      "notes": [
+        "修复 v2.40.1 起 parseManifest 把 apkFileID 单独使用也判 null 的 bug——影响所有 v2.40.0/v2.40.1 用户根本看不到 v2.40.1 的更新提示",
+        "强烈建议更新:本次修复让 App 内检查更新能正常推送 v2.40.1 的「激活码输入框修复」"
+      ]
+    },
     {
       "version": "2.40.1",
       "date": "2026-07",
