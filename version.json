@@ -1,11 +1,19 @@
 {
-  "version": "2.40.2",
-  "versionCode": 36,
-  "apkFileID": "cloud://jianilrizhi-d7gbsmtka8ca38268.6a69-jianilrizhi-d7gbsmtka8ca38268-1419360976/release/gongcheng-zhitian-v2.40.2+36.apk",
-  "downloadUrl": "https://xiaoxijin199307081491-a11y.github.io/gongcheng-zhitian-release/",
-  "forceUpdate": true,
-  "updateLog": "v2.40.2 修复 v2.40.1 的 App 内更新提示看不到自己。如果你是从 v2.40.0/2.40.1 升级上来的,强烈建议手动进「我的→当前版本→检查更新」一下,确保能拿到最新功能;以后新版本会按正常节奏通知你。",
+  "version": "2.41.0",
+  "versionCode": 37,
+  "apkFileID": "cloud://jianilrizhi-d7gbsmtka8ca38268.6a69-jianilrizhi-d7gbsmtka8ca38268-1419360976/release/gongcheng-zhitian-v2.41.0+37.apk",
+  "downloadUrl": "",
+  "forceUpdate": false,
+  "updateLog": "后台监控体系升级(不影响日常使用),非强制更新:优化崩溃/异常自动上报,帮助我们更快发现问题。",
   "history": [
+    {
+      "version": "2.41.0",
+      "date": "2026-07",
+      "notes": [
+        "后台监控体系升级:更全面地自动发现导出/加载/激活等场景的异常情况",
+        "不涉及任何界面或使用方式变化,非强制更新"
+      ]
+    },
     {
       "version": "2.40.2",
       "date": "2026-07",
