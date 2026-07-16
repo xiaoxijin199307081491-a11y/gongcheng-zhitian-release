@@ -1,11 +1,19 @@
 {
-  "version": "2.42.3",
-  "versionCode": 41,
-  "apkFileID": "cloud://jianilrizhi-d7gbsmtka8ca38268.6a69-jianilrizhi-d7gbsmtka8ca38268-1419360976/release/gongcheng-zhitian-v2.42.3+41.apk",
+  "version": "2.42.4",
+  "versionCode": 42,
+  "apkFileID": "cloud://jianilrizhi-d7gbsmtka8ca38268.6a69-jianilrizhi-d7gbsmtka8ca38268-1419360976/release/gongcheng-zhitian-v2.42.4+42.apk",
   "downloadUrl": "",
   "forceUpdate": false,
-  "updateLog": "修余额竞态第三处遗留问题;系统性排查 5 个监理模板(建筑工程监理日志—1~5),修复模板4/5 的字段/防幻觉问题;AI 生成失败时提示更友好,额度用尽会提示预计恢复时间。",
+  "updateLog": "修复导出 Word 偶发残留未替换占位符的问题(如「见证取样」显示原始代码);修复「旁站情况」字段偶尔误判普通开挖为深基坑的问题。",
   "history": [
+    {
+      "version": "2.42.4",
+      "date": "2026-07",
+      "notes": [
+        "修复导出 Word 时个别字段(如见证取样)偶发残留未替换的占位符原文",
+        "修复「旁站情况」字段把普通土方开挖/管沟槽开挖误判成深基坑,独立触发不必要旁站的问题"
+      ]
+    },
     {
       "version": "2.42.3",
       "date": "2026-07",
