@@ -1,35 +1,11 @@
 {
-  "version": "2.42.2",
-  "versionCode": 40,
-  "apkFileID": "cloud://jianilrizhi-d7gbsmtka8ca38268.6a69-jianilrizhi-d7gbsmtka8ca38268-1419360976/release/gongcheng-zhitian-v2.42.2+40.apk",
+  "version": "2.41.0",
+  "versionCode": 37,
+  "apkFileID": "cloud://jianilrizhi-d7gbsmtka8ca38268.6a69-jianilrizhi-d7gbsmtka8ca38268-1419360976/release/gongcheng-zhitian-v2.41.0+37.apk",
   "downloadUrl": "",
   "forceUpdate": false,
-  "updateLog": "取消每日免费额度,改为充值余额 + 有效期模式(¥10/60 天、¥30/180 天、¥50/365 天),续费在原有效期基础上顺延不重置;老用户一次性补偿 500 次。已激活账户升级后请进入「我的」查看新余额(此前版本有冷启动竞态导致余额不显示的 bug,本次彻底修好)。",
+  "updateLog": "后台监控体系升级(不影响日常使用),非强制更新:优化崩溃/异常自动上报,帮助我们更快发现问题。",
   "history": [
-    {
-      "version": "2.42.2",
-      "date": "2026-07",
-      "notes": [
-        "修复校验结果用旧快照覆盖并发写入的余额/有效期(第二处竞态)",
-        "建议从 v2.40.x 升上来的已激活用户直接装最新版查看正确余额"
-      ]
-    },
-    {
-      "version": "2.42.1",
-      "date": "2026-07",
-      "notes": [
-        "修复冷启动余额/有效期永远拉不到的竞态 bug"
-      ]
-    },
-    {
-      "version": "2.42.0",
-      "date": "2026-07",
-      "notes": [
-        "取消每日免费额度,改为充值余额 + 有效期(¥10/60 天、¥30/180 天、¥50/365 天)",
-        "老用户一次性补偿 500 次(15 个已激活账户全部到账)",
-        "首次激活赠的 50 次保持永久有效,不设有效期"
-      ]
-    },
     {
       "version": "2.41.0",
       "date": "2026-07",
