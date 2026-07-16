@@ -1,11 +1,44 @@
 {
-  "version": "2.41.0",
-  "versionCode": 37,
-  "apkFileID": "cloud://jianilrizhi-d7gbsmtka8ca38268.6a69-jianilrizhi-d7gbsmtka8ca38268-1419360976/release/gongcheng-zhitian-v2.41.0+37.apk",
+  "version": "2.42.3",
+  "versionCode": 41,
+  "apkFileID": "cloud://jianilrizhi-d7gbsmtka8ca38268.6a69-jianilrizhi-d7gbsmtka8ca38268-1419360976/release/gongcheng-zhitian-v2.42.3+41.apk",
   "downloadUrl": "",
   "forceUpdate": false,
-  "updateLog": "后台监控体系升级(不影响日常使用),非强制更新:优化崩溃/异常自动上报,帮助我们更快发现问题。",
+  "updateLog": "修余额竞态第三处遗留问题;系统性排查 5 个监理模板(建筑工程监理日志—1~5),修复模板4/5 的字段/防幻觉问题;AI 生成失败时提示更友好,额度用尽会提示预计恢复时间。",
   "history": [
+    {
+      "version": "2.42.3",
+      "date": "2026-07",
+      "notes": [
+        "修余额竞态第三处:生成/兑换成功写入的正确余额,不再被更早发起、更晚返回的查询响应覆盖",
+        "系统性排查 5 个监理模板:补齐建筑工程监理日志—5(fj_v10)云端缺失的 AI 规则,修复—4(fj_v9)输出编造推导过程的问题,顺带修复—1/—4 云端漏问的字段",
+        "AI 生成失败提示优化:不再显示服务端内部代码,额度用尽时给出预计恢复时间"
+      ]
+    },
+    {
+      "version": "2.42.2",
+      "date": "2026-07",
+      "notes": [
+        "修复 v2.42.1 没修全的第二处竞态(校验结果覆盖并发写入的余额/有效期)",
+        "建议所有已激活用户在客户端看到「余额 0 次」或有效期不显示时,升级到本版即可看到正确的余额"
+      ]
+    },
+    {
+      "version": "2.42.1",
+      "date": "2026-07",
+      "notes": [
+        "修复冷启动余额/有效期永远拉不到的竞态 bug(refreshCreditStatus 在 build 期间读不到 Notifier state,需传 snapshot)"
+      ]
+    },
+    {
+      "version": "2.42.0",
+      "date": "2026-07",
+      "notes": [
+        "取消每日免费额度,改为充值余额 + 有效期(¥10/60天、¥30/180天、¥50/365天),续费在原有效期基础上顺延",
+        "老用户一次性补偿 500 次(已在生产环境跑完,15 个已激活账户全部到账)",
+        "首次激活赠的 50 次保持永久有效,不设有效期"
+      ]
+    },
     {
       "version": "2.41.0",
       "date": "2026-07",
